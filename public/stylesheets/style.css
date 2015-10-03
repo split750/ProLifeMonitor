@@ -73,5 +73,24 @@ a {
 }
 
 .profil-pic img {
-	width: 150px; 
+	display: block;
+	margin: 0 auto;
+	width: 150px;
+}
+
+.firstName {
+	font-size: 50px;
+	line-height: 50px;
+	height: auto;
+	text-transform: uppercase;
+	margin-bottom: 0;
+}
+
+.lastName {
+	font-size: 40px;
+	line-height: 40px;
+	height: auto;
+	text-transform: capitalize;
+	letter-spacing: -2px;
+	margin-top: 0;
 }
