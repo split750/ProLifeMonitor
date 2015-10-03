@@ -1,10 +1,10 @@
 body {
-	padding-top:70px;
+	/*padding-top:70px;*/
 	width: 100%;
     height: 100%;
 	width: 100%;
     height: 100%;
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Arial,"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 a {
@@ -34,4 +34,44 @@ a {
 	max-width: 330px;
 	padding: 5px;
 	margin: 0 auto;
+}
+
+.container-main {
+	max-width: 780px;
+	margin: -200px auto 0 auto;
+	float: none;
+	background-color: rgb(241, 241, 241);
+	border: 1px solid #ccc;
+}
+
+.h1 {
+	color: rgb(47, 47, 47);
+	/*font-family: NeuzeitBold;*/
+	font-size: 96px;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	height: 104px;
+	letter-spacing: -4px;
+	line-height: 96px;
+}
+
+.header-bg {
+	max-height: 450px;
+	overflow: hidden;
+}
+
+.header-bg img {
+	min-width: 100%;
+}
+
+.logo img {
+	margin: 0 auto;
+	display: block;
+	max-height: 100px;
+}
+
+.profil-pic img {
+	width: 150px; 
 }
