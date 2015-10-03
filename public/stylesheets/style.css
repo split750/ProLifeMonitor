@@ -107,3 +107,10 @@ a {
 	margin: 6px 0 0 0;
 	font-size: 24px;
 }
+
+.border-small {
+	height: 1px;
+	width: 150px;
+	background-color: #666;
+	margin: 4px 0 4px 0;
+}
