@@ -40,7 +40,7 @@ a {
 	max-width: 780px;
 	margin: -200px auto 0 auto;
 	float: none;
-	background-color: rgb(241, 241, 241);
+	background-color: rgba(241, 241, 241, 0.8);
 	border: 1px solid #ccc;
 }
 
@@ -66,10 +66,18 @@ a {
 	min-width: 100%;
 }
 
+.logo {
+	background-color: rgb(241, 241, 241);
+}
+
 .logo img {
 	margin: 0 auto;
 	display: block;
 	max-height: 100px;
+}
+
+.profil-header {
+	padding-top: 20px;
 }
 
 .profil-pic img {
@@ -87,10 +95,15 @@ a {
 }
 
 .lastName {
-	font-size: 40px;
-	line-height: 40px;
+	font-size: 45px;
+	line-height: 45px;
 	height: auto;
 	text-transform: capitalize;
 	letter-spacing: -2px;
 	margin-top: 0;
+}
+
+.jobTitle {
+	margin: 6px 0 0 0;
+	font-size: 24px;
 }
