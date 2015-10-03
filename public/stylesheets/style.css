@@ -81,7 +81,7 @@ h1 {
 }
 
 .logo {
-	background-color: rgb(241, 241, 241);
+	background-color: #fff;
 }
 
 .logo img {
@@ -99,6 +99,8 @@ h1 {
 	margin: 0 auto 20px;
 	width: 150px;
 	max-height: 180px;
+	padding: 5px;
+	/*border: 1px solid #bbb;*/
 }
 
 .firstName {
