@@ -38,10 +38,23 @@ a {
 
 .container-main {
 	max-width: 780px;
-	margin: -200px auto 0 auto;
+	margin: 20px auto 0 auto;
 	float: none;
-	background-color: rgba(241, 241, 241, 0.8);
+	background-color: rgba(241, 241, 241, 0.9);
 	border: 1px solid #ccc;
+}
+
+.container-main.first {
+	margin: -200px auto 0 auto;
+}
+
+h1 {
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: -2px;
+	font-size: 26px;
+	padding: 6px 0;
+	line-height: 26px;
 }
 
 .h1 {
@@ -55,6 +68,7 @@ a {
 	height: 104px;
 	letter-spacing: -4px;
 	line-height: 96px;
+	padding: 0;
 }
 
 .header-bg {
@@ -82,8 +96,9 @@ a {
 
 .profil-pic img {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto 20px;
 	width: 150px;
+	max-height: 180px;
 }
 
 .firstName {
@@ -113,4 +128,23 @@ a {
 	width: 150px;
 	background-color: #666;
 	margin: 4px 0 4px 0;
+}
+
+.border-large {
+	height: 4px;
+	width: 200px;
+	background-color: rgb(3, 15, 64);
+}
+
+.border-large.top {
+	margin: 20px 0 6px 0;
+}
+
+.border-large.bottom {
+	margin: 6px 0 10px 0;
+}
+
+.border-large-h1 {
+	margin: 0;
+	padding: 0;
 }
