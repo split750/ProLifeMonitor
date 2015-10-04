@@ -15,7 +15,8 @@ app.config(function($routeProvider){
 			templateUrl: 'signup.html',
 			controller: 'authController'
 		})
-		.when('/godefroy.lemerdy', {
-			templateUrl: 'profil.html'
+		.when('/profil', {
+			templateUrl: 'profil.html',
+			controller: 'profilController'
 		});
 });

@@ -78,4 +78,19 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
 			}
 		});
 	};
+
+	$scope.userinfo = function() {
+        $http.get('/auth/currentuser').
+            success(function (data) {
+                $scope.loggeduser = data;
+            }).
+            error(function () {
+                $location.path('/login');
+            });
+    }
+});
+
+
+app.controller('profilController', function($scope, $rootScope, user){
+
 });

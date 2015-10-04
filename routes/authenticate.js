@@ -33,5 +33,9 @@ module.exports = function(passport){
 		res.redirect('/');
 	});
 
+	router.get('/currentuser',isAuthenticated,function(req,res){
+        res.json(req.user);
+    });
+
 	return router;
 };
