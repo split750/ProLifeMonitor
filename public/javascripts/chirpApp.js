@@ -71,12 +71,18 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
 			if(data.state == 'success'){
 				$rootScope.authenticated = true;
 				$rootScope.current_user = data.user.username;
-				$location.path('/');
+				//$location.path('/');
+				
+				$http.post('/api/profil').success(function(data) {
+			        $location.path('/');
+			    });
+
 			}
 			else{
 				$scope.error_message = data.message;
 			}
 		});
+
 	};
 
 	$scope.userinfo = function() {
@@ -92,38 +98,35 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
 
 
 
-app.factory('ProfilService', function($resource){
-  return $resource('/api/profil', {
-    update: {
-      method: "PUT"
-    },
-    get: {
-      method: "GET"  
-    }
-  });
+app.factory('Profil', function($resource){
+  return $resource('/api/profil'); 
 });
 
-app.controller('profilController', function($scope, $rootScope, ProfilService){
-	$scope.profil = ProfilService.query();
+app.controller('profilController', function($http, $scope, $rootScope, $location){
+	$http.get('/api/profil').
+        success(function (data) {
+            $scope.profil = data;
+        }).
+        error(function () {
+            $location.path('/login');
+        });
 });
 
-app.controller('profilEditController', function($http, $scope, Profil, $routeParams, $location){
+app.controller('profilEditController', function($http, $scope, $routeParams, $location, Profil){
   
-  $scope.profil = Profil.query();
   $scope.isSubmitting = false;
+  $scope.profil = Profil.get();
+  console.log($scope.profil);
 
-
-  $scope.saveProfil = function(user){
+  $scope.saveProfil = function(profil){
     $scope.isSubmitting = true;
 
-    $http.put('/api/profil', user).
+    console.log($scope.profil);
+
+    $http.put('/api/profil', $scope.profil).
       success(function(data) {
-        $location.url('/profil');
+        $location.path('/profil');
       });
   };
-
-
-  //     Line form controller     //
-  console.log($scope.user);
 
 });

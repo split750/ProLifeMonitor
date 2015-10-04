@@ -7,9 +7,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Profil = new Schema({
-    userId : Number,
-    firstName: String,
-    lastName: String,
+    userId : String,
+    firstname: String,
+    lastname: String,
     job : {
         title: String,
         attachment: String,
