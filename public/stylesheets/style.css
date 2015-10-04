@@ -7,6 +7,21 @@ body {
     font-family: Arial,"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+.animateall * {
+    -webkit-transition-property: font-size,margin,padding;
+    -moz-transition-property: font-size,margin,padding;
+    -o-transition-property: font-size,margin,padding;
+    transition-property: font-size,margin,padding;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
 a {
 	color: #00B7FF;
 }
@@ -45,7 +60,7 @@ a {
 }
 
 .container-main.first {
-	margin: -200px auto 0 auto;
+	margin: -250px auto 0 auto;
 }
 
 h1 {
@@ -88,19 +103,40 @@ h1 {
 	margin: 0 auto;
 	display: block;
 	max-height: 100px;
+	-webkit-animation:fadeInDown .6s 0.5s ease both;
+	-moz-animation:fadeInDown .6s 0.5s ease both;
+	-ms-animation:fadeInDown .6s 0.5s ease both;
+	-o-animation:fadeInDown .6s 0.5s ease both;
+	animation:fadeInDown .6s 0.5s ease both;
 }
 
 .profil-header {
 	padding-top: 20px;
 }
 
+.profil-pic {
+	padding-left: 0;
+}
+
 .profil-pic img {
 	display: block;
 	margin: 0 auto 20px;
-	width: 150px;
+	/*width: 150px;*/
 	max-height: 180px;
-	padding: 5px;
+	margin-left: -1px;
 	/*border: 1px solid #bbb;*/
+}
+
+.name {
+	-webkit-animation: fadeInUp .6s .5s ease both;
+    -moz-animation: fadeInUp .6s .5s ease both;
+    -ms-animation: fadeInUp .6s .5s ease both;
+    -o-animation: fadeInUp .6s .5s ease both;
+    animation: fadeInUp .6s .5s ease both;
+}
+
+.name .border-small {
+	margin: 10px 0 10px 0;
 }
 
 .firstName {
@@ -109,6 +145,7 @@ h1 {
 	height: auto;
 	text-transform: uppercase;
 	margin-bottom: 0;
+	margin-top: 30px;
 }
 
 .lastName {
@@ -121,7 +158,7 @@ h1 {
 }
 
 .jobTitle {
-	margin: 6px 0 0 0;
+	margin: 10px 0 0 0;
 	font-size: 24px;
 }
 
@@ -150,3 +187,57 @@ h1 {
 	margin: 0;
 	padding: 0;
 }
+
+@-webkit-keyframes fadeInUp{
+	0%{
+		opacity:0;
+		-webkit-transform:translateY(25px)
+	}
+
+	100%{
+		opacity:1;
+		-webkit-transform:translateY(0)
+	}
+}
+
+@-moz-keyframes fadeInUp{
+	0%{
+		opacity:0;
+		-moz-transform:translateY(25px)
+	}
+
+	100%{
+		opacity:1;
+		-moz-transform:translateY(0)
+	}
+}
+
+@-ms-keyframes fadeInUp{
+	0%{
+		opacity:0;
+		-ms-transform:translateY(25px)
+	}
+
+	100%{
+		opacity:1;
+		-ms-transform:translateY(0)
+	}
+}
+
+@-keyframes fadeInUp{
+	0%{
+		opacity:0;
+		-transform:translateY(25px)
+	}
+
+	100%{
+		opacity:1;
+		-transform:translateY(0)
+	}
+}
+
+@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-25px)}100%{opacity:1;-webkit-transform:translateY(0)}}
+@-moz-keyframes fadeInDown{0%{opacity:0;-moz-transform:translateY(-25px)}100%{opacity:1;-moz-transform:translateY(0)}}
+@-ms-keyframes fadeInDown{0%{opacity:0;-ms-transform:translateY(-25px)}100%{opacity:1;-ms-transform:translateY(0)}}@-ms-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
+@-keyframes fadeInDown{0%{opacity:0;-ms-transform:translateY(-25px)}100%{opacity:1;-ms-transform:translateY(0)}}
+
