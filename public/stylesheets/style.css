@@ -28,6 +28,10 @@ a {
 	color: #00B7FF;
 }
 
+.ng-scope {
+	margin-top: 30px;
+}
+
 .submit-btn {
 	background-color: #b1dbff;
 	margin: 10px 0 10px 0;

@@ -9,24 +9,7 @@ var app = angular.module('chirpApp', ['ngRoute', 'ngResource']).run(function($ht
 	};
 });
 
-app.config(function($routeProvider){
-	$routeProvider
-		//the timeline display
-		.when('/', {
-			templateUrl: 'main.html',
-			controller: 'mainController'
-		})
-		//the login display
-		.when('/login', {
-			templateUrl: 'login.html',
-			controller: 'authController'
-		})
-		//the signup display
-		.when('/signup', {
-			templateUrl: 'signup.html',
-			controller: 'authController'
-		});
-});
+
 
 /*
 //used for basic read from json
@@ -64,6 +47,8 @@ app.controller('mainController', function($scope, $rootScope, postService){
 		$scope.posts = postService.query();
 	};
 });
+
+
 app.controller('authController', function($scope, $http, $rootScope, $location){
 	$scope.user = {username: '', password: ''};
 	$scope.error_message = '';
