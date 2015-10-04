@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require( 'mongoose' );
 var Post = mongoose.model('Post');
 var User = mongoose.model('User');
+var Profil = mongoose.model('Profils');
 
 //Used for routes that must be authenticated.
 isAuthenticated = function (req, res, next) {
@@ -11,15 +12,15 @@ isAuthenticated = function (req, res, next) {
 	// request and response objects
 
 	//allow all get request methods
-	if(req.method === "GET"){
+	/*if(req.method === "GET"){
 		return next();
-	}
+	}*/
 	if (req.isAuthenticated()){
 		return next();
 	}
 
 	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/#login');
+	res.redirect('/#/login');
 };
 
 router.use('/posts', isAuthenticated);
@@ -84,6 +85,41 @@ router.route('/posts/:id')
 				res.send(err);
 			res.json("deleted :(");
 		});
+	});
+
+
+router.use('/profil', isAuthenticated);
+
+router.route('/profil')
+	
+	//gets profil info
+	.get(function(req, res){
+		Profil.findOne({'user_id': req.user._id}, function(err, profils){
+			if(err){
+				return res.send(500, err);
+			}
+			console.log(req.user);
+			return res.send(profils);
+		});
+	})
+
+	.post(function(req, res) {
+		var id = req.user._id;
+		console.log('id is : ' + id);
+	    var profilItem = req.body;
+	   	
+	    console.log('line 42 : ' + JSON.stringify(profilItem));
+
+	    Profil.update(profilItem, function(err) {
+	        if (err) {
+	            console.log('Error updating profil: ' + err);
+	            res.send({'error':'An error has occurred'});
+	        } else {
+	            console.log(profilItem.firstname + ' user document(s) updated');
+	            res.send(profilItem);
+	        }
+	    });
+
 	});
 
 module.exports = router;

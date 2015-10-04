@@ -2,21 +2,25 @@ app.config(function($routeProvider){
 	$routeProvider
 		//the timeline display
 		.when('/', {
-			templateUrl: 'main.html',
+			templateUrl: 'views/main.html',
 			controller: 'mainController'
 		})
 		//the login display
 		.when('/login', {
-			templateUrl: 'login.html',
+			templateUrl: 'views/login.html',
 			controller: 'authController'
 		})
 		//the signup display
 		.when('/signup', {
-			templateUrl: 'signup.html',
+			templateUrl: 'views/signup.html',
 			controller: 'authController'
 		})
 		.when('/profil', {
-			templateUrl: 'profil.html',
+			templateUrl: 'views/profil/index.html',
 			controller: 'profilController'
+		})
+		.when('/profil/edit', {
+			templateUrl: 'views/profil/edit.html',
+			controller: 'profilEditController'
 		});
 });

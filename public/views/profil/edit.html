@@ -1,0 +1,116 @@
+<div class="container-fluid">
+	<form class="col-xs-12">
+		<div class="row">
+			<div class="col-md-12 container-main">
+				<div class="container-title">
+					<h1>Edit your profil</h1>
+				</div>
+				<h3><span class="semi-bold">Personnal</span> information</h3>
+				
+				<div class="row">
+					<div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="firstName">First Name</label>
+				        	<input class="form-control" type="text" id="firstName" name="firstName" placeholder="Enter your First name" ng-model="profil.firstname">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="lastName">Last Name</label>
+				        	<input class="form-control" type="text" id="lastName" name="lastName" placeholder="Enter your Last name" ng-model="profil.lastname">
+				        </fieldset>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 container-main">
+				<div class="container-title">
+					<h1>Edit your professionnal</h1>
+				</div>
+				<h3><span class="semi-bold">Job</span> information</h3>
+				
+				<div class="row">
+					<div class="col-sm-8">
+						<fieldset class="form-group">
+				        	<label for="title">Job tile</label>
+				        	<input class="form-control" type="text" id="title" name="title" placeholder="Enter your job title" ng-model="profil.job.title">
+				        </fieldset>
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="attachment">Attachment / Direction</label>
+				        	<input class="form-control" type="text" id="attachment" name="attachment" placeholder="Enter your attachment" ng-model="profil.job.attachment">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="area">Area</label>
+				        	<input class="form-control" type="text" id="area" name="area" placeholder="Enter your area" ng-model="profil.job.area">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-12">
+						<fieldset class="form-group">
+				        	<label for="summary">Summary</label>
+				        	<textarea class="form-control" id="summary" name="summary" placeholder="Enter your summary" ng-model="profil.job.summary"></textarea>
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="email">Email</label>
+				        	<input class="form-control" type="mail" id="email" name="email" placeholder="Enter your email" ng-model="profil.job.email">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="tel">Tel</label>
+				        	<input class="form-control" type="tel" id="tel" name="tel" placeholder="Enter your tel" ng-model="profil.job.tel">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="place">Place</label>
+				        	<input class="form-control" type="text" id="place" name="place" placeholder="Enter the place where you work" ng-model="profil.job.place">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="assistant">Assistant</label>
+				        	<input class="form-control" type="text" id="assistant" name="assistant" placeholder="Enter the name of your assistant" ng-model="profil.job.assistant">
+				        </fieldset>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 container-main">
+				<div class="container-title">
+					<h1>Edit your social networks</h1>
+				</div>
+				<h3><span class="semi-bold">Social</span> contacts</h3>
+				
+				<div class="row">
+					<div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="twitter">Twitter</label>
+				        	<input class="form-control" type="text" id="twitter" name="twitter" placeholder="Enter your Twitter username" ng-model="profil.socialNetwork.twitter">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="linkedIn">LinkedIn</label>
+				        	<input class="form-control" type="text" id="linkedIn" name="linkedIn" placeholder="Enter your linkedIn link" ng-model="profil.socialNetwork.linkedIn">
+				        </fieldset>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+	      <div class="col-sm-4 col-offset-4">
+	        <input type="submit" value="{{isSubmitting ? 'saving plant...' : 'Save plant'}}" class="btn btn-default" ng-click="saveProfil(profil)" ng-disabled="isSubmitting">
+	      </div>
+	    </div>
+    </form>
+</div>

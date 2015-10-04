@@ -87,10 +87,43 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
             error(function () {
                 $location.path('/login');
             });
-    }
+    };
 });
 
 
-app.controller('profilController', function($scope, $rootScope, user){
+
+app.factory('ProfilService', function($resource){
+  return $resource('/api/profil', {
+    update: {
+      method: "PUT"
+    },
+    get: {
+      method: "GET"  
+    }
+  });
+});
+
+app.controller('profilController', function($scope, $rootScope, ProfilService){
+	$scope.profil = ProfilService.query();
+});
+
+app.controller('profilEditController', function($http, $scope, Profil, $routeParams, $location){
+  
+  $scope.profil = Profil.query();
+  $scope.isSubmitting = false;
+
+
+  $scope.saveProfil = function(user){
+    $scope.isSubmitting = true;
+
+    $http.put('/api/profil', user).
+      success(function(data) {
+        $location.url('/profil');
+      });
+  };
+
+
+  //     Line form controller     //
+  console.log($scope.user);
 
 });

@@ -21,7 +21,7 @@ var dbOpened = db.once('open', function() {
 });
 
 var models = require('./models/models.js');                 //mongoose schemas
-
+var Profils = require('./models/profils.js');
 
 //import the routers
 var index = require('./routes/index');
