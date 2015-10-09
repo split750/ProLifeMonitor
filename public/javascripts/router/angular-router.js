@@ -15,11 +15,11 @@ app.config(function($routeProvider){
 			templateUrl: 'views/signup.html',
 			controller: 'authController'
 		})
-		.when('/profil/:id', {
+		.when('/:id', {
 			templateUrl: 'views/profil/index.html',
 			controller: 'profilController'
 		})
-		.when('/profil/:id/edit', {
+		.when('/:id/edit', {
 			templateUrl: 'views/profil/edit.html',
 			controller: 'profilEditController'
 		});
