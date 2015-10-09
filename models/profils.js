@@ -8,6 +8,7 @@ var Schema = mongoose.Schema;
 
 var Profil = new Schema({
     userId : String,
+    userName : String,
     firstname: String,
     lastname: String,
     job : {

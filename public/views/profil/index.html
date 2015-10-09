@@ -1,5 +1,8 @@
 <div class="container-fluid">
 	<div class="row">
+		<div class="col-md-12" ng-show="authenticated">
+			<a class="btn btn-default" href="#/profil/{{current_user}}/edit">Edit your profil</a>
+		</div>
 		<div class="col-md-12 header-bg">
 			<img src="./images/boulazac.jpg"></img>
 		</div>
@@ -16,12 +19,11 @@
 					<img src="./images/profil-pic.jpg"></img>
 				</div>
 				<div class="col-md-9 name">
-					<p>{{ profil.userId }}</p>
-					<h1 class="h1 firstName">godefroy, <span class="lastName">le merdy</span></h1>
-					<h2 class="jobTitle">Performance Analyst IT</h2>
+					<h1 class="h1 firstName">{{profil.firstname}}, <span class="lastName">{{profil.firstname}}</span></h1>
+					<h2 class="jobTitle">{{profil.job.title}}</h2>
 					<div class="border-small"></div>
-					<p>Direction générale</p>
-					<p>Paris area</p>
+					<p>{{profil.job.attachment}}</p>
+					<p>{{profil.job.area}} area</p>
 				</div>
 			</div>
 		</div>
@@ -32,7 +34,7 @@
 				<h1>À propos de moi</h1>
 			</div>
 			<h3><span class="semi-bold">Sommaire</span></h3>
-			<p>Member of JUMP Graduate Program 2014 at Suez Environnement, currently in a second position as a Performance Analyst for Energy from Waste plants.</p>
+			<p>{{profil.job.summary}}</p>
 		</div>
 	</div>
 	<div class="row">
@@ -43,10 +45,10 @@
 						<h1>Contact</h1>
 					</div>
 					<h3><span class="semi-bold">Mes</span> coordonnées</h3>
-					<p>Message : <a href="mailto:godefroy.lemerdy@suez-env.com">godefroy.lemerdy@suez-env.com</a></p>
-					<p>Appeler : <a href="tel:0033673584540">0033 6 73 58 45 40</a></p>
-					<p>Emplacement : CB21</p>
-					<p>Assistante : GERALDINE, Javel</p>
+					<p>Message : <a href="mailto:{{profil.job.email}}">{{profil.job.email}}</a></p>
+					<p>Appeler : <a href="tel:{{profil.job.tel}}">{{profil.job.tel}}</a></p>
+					<p>Emplacement : {{profil.job.place}}</p>
+					<p>Assistante : {{profil.job.assistant}}</p>
 				</div>
 			</div>
 		</div>
@@ -58,8 +60,8 @@
 					<div class="container-title">
 						<h1>Mes réseaux</h1>
 					</div>
-					<p>Twitter : <a href="mailto:godefroy.lemerdy@suez-env.com">@godefroy.lemerdy</a></p>
-					<p>LinkedIn : <a href="tel:0033673584540"></a></p>
+					<p>Twitter : <a href="http://www.twitter.com/{{profil.socialNetwork.twitter}}">@{{profil.socialNetwork.twitter}}</a></p>
+					<p>LinkedIn : <a href="{{profil.socialNetwork.linkedIn}}">{{profil.socialNetwork.linkedIn}}</a></p>
 				</div>
 			</div>
 		</div>

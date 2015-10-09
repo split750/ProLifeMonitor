@@ -20,7 +20,7 @@ isAuthenticated = function (req, res, next) {
 	}
 
 	// if the user is not authenticated then redirect him to the login page
-	res.redirect('/#/');
+	res.redirect('/#/login');
 };
 
 router.use('/posts', isAuthenticated);
@@ -92,85 +92,87 @@ router.use('/profil', isAuthenticated);
 
 router.route('/profil')
 	
-	//gets profil info
-	/*.get(function(req, res){
-		Profil.findOne({'user_id': req.user._id}, function(err, profil){
-			if(err){
-				return res.send(500, err);
-			}
-			//console.log(req.user);
-			return res.send(profil);
-		});
-	})*/
-
-	.get(function(req, res){
+	//Create empty profil when register new user
+	.post(function(req, res){
 		console.log('user id : '+ req.user._id);
-		Profil.findOne({'userId': req.user._id}, function(err, profils){
+		Profil.findOne({'userId': req.user._id}, function(err, profil){
 			if(err){
 				return res.send(500, err);
 			}
-			return res.send(profils);
+			if (profil) {
+				return res.send(profil);
+			}
+			else {
+				var newProfil = new Profil();
+				newProfil.userId = req.user._id;
+				newProfil.userName = req.user.username;
+
+				newProfil.save(function(err) {
+					if (err){
+						console.log('Error in Saving profil: '+err);  
+						throw err;  
+					}
+					console.log(newProfil.userId + ' Registration succesful');    
+					return res.send(newProfil);
+				});
+			}
 		});
 	});
 
 
 router.route('/profil/:id')	
 	
-	.get('/profil/:id', function(req, res) {
-	    var profilId = req.params.id;
-	    console.log('Retrievong profil : ' + profilId);
-	    Profil.findOne({'userId': profilId }, function foundUsers(err, items) {
-	      // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-	      if (err) {
-	        res.send(err);
-	      } else {
-	        res.send(items);
-	      };
+	.get(function(req, res) {
+	    
+	    Profil.findOne({'userName': req.params.id }, function(err, items) {
+		    // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+		    console.log('showing profil user : '+req.params.id);
+		    if (err) {
+		        res.send(err);
+		    } else {
+		    	console.log(items);
+		        res.send(items);
+		    };
 	    });
-	  })
+	})
 
 	.put(function(req, res) {
 		var id = req.params.id;
-		console.log('id is : ' + id);
-	    
-	    var profilItem = req.body;
-    
-	    delete profilItem._id;
-	    
+	    console.log(JSON.stringify(req.body));
 	    console.log('Updating profil: ' + id);
-	    console.log('line 42 : ' + JSON.stringify(profilItem));
 
-	    Profil.update({'_id': id}, profilItem, function(err) {
+	    var profilItem = req.body;
+	    delete profilItem._id;
+
+	    Profil.update({'userName': id}, profilItem, function(err) {
+	    	if (err) {
+	    		console.log('Error updating profil: ' + err);
+	    		res.send({'error':'An error has occurred'});
+	        } else {
+	            console.log(profilItem.firstname + ' document(s) updated');
+	            res.send(profilItem);
+	        }
+	    });
+	    /*
+	    Profil.findById(req.body._id, function(err, profilItem) {
 	        if (err) {
 	            console.log('Error updating profil: ' + err);
 	            res.send({'error':'An error has occurred'});
 	        } else {
-	            console.log(userItem.title + ' profil document(s) updated');
-	            res.send(profilItem);
-	        }
-	    });
+	        	profilItem.firstname = req.body.firstname;
+	        	profilItem.lastname = req.body.lastname;
+	        	profilItem.job.title = req.body.job.title;
 
-	    /*var profilItem = profil;
-	    
-	   	console.log('profil items : ' + JSON.stringify(profilItem));
-
-	    Profil.findOne({'userId': req.user._id}, function(err, profil){
-	        if (err) {
-	            console.log('Error updating profil: ' + err);
-	            res.send({'error':'An error has occurred'});
-	        }
-
-	        console.log('profil items : ' + JSON.stringify(profil));
-	        
-	        profil.firstname = profilItem.firstname;
-
-	        profil.update(function(err, profil){
+	        	Profil.update({_id: req.body._id}, profilItem, function(err, profilItem){
 				if(err)
 					res.send(err);
 
-				res.json(profil);
-			});
-	    });*/
+					res.json(profilItem);
+				});
+	        }
+
+	    });
+		*/
 
 	});
 

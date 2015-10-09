@@ -98,34 +98,46 @@ app.controller('authController', function($scope, $http, $rootScope, $location){
 
 
 
-app.factory('Profil', function($resource){
-  return $resource('/api/profil'); 
+app.factory('Profil', function($http){
+    return {
+    	get : function(id) {
+    		return $http.get('api/profil/' + id);
+    	}
+    }
 });
 
-app.controller('profilController', function($http, $scope, $rootScope, $location){
-	$http.get('/api/profil').
-        success(function (data) {
-            $scope.profil = data;
-        }).
+
+app.controller('profilController', function($http, $scope, $routeParams, $location, Profil){
+	$scope.getProfil = Profil.get($routeParams.id)
+	  	.success(function(data) {
+	        console.log(data);
+	        $scope.profil = data;
+	    }).
         error(function () {
-            $location.path('/login');
+            $location.path('/');
         });
 });
 
 app.controller('profilEditController', function($http, $scope, $routeParams, $location, Profil){
   
   $scope.isSubmitting = false;
-  $scope.profil = Profil.get();
-  console.log($scope.profil);
+  //$scope.profil = Profil.query();
+  console.log('routeParams id : ' + $routeParams.id);
+
+  $scope.getProfil = Profil.get($routeParams.id)
+  	.success(function(data) {
+  		console.log(data);
+        $scope.profil = data;
+    });
 
   $scope.saveProfil = function(profil){
     $scope.isSubmitting = true;
 
     console.log($scope.profil);
 
-    $http.put('/api/profil', $scope.profil).
+    $http.put('/api/profil/' + $routeParams.id, $scope.profil).
       success(function(data) {
-        $location.path('/profil');
+        $location.path('/profil/' + $routeParams.id);
       });
   };
 
