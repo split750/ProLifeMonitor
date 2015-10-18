@@ -66,6 +66,7 @@ a {
     border-bottom-right-radius: 2px;
     border-bottom-left-radius: 2px;
     border: 1px solid #d5dadb;
+    padding-bottom: 20px;
 }
 
 .container-main.first {
@@ -172,6 +173,12 @@ h3 .semi-bold {
 }
 */
 
+.bg-info {
+	position: absolute;
+	top: 60px;
+	z-index:10;
+}
+
 .header-bg {
 	max-height: 450px;
 	overflow: hidden;
@@ -273,6 +280,15 @@ h3 .semi-bold {
 	margin: 0;
 	padding: 0;
 }
+
+.saveProfil {
+	padding: 10px;
+}
+
+.editBg img {
+	max-width: 100%;
+}
+
 
 @-webkit-keyframes fadeInUp{
 	0%{

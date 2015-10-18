@@ -10,6 +10,16 @@ var LocalStrategy = require('passport-local').Strategy;
 //global.passport = passport;
 var session = require('express-session');
 
+/*
+var cloudinary = require('cloudinary');
+cloudinary.config({ 
+  cloud_name: 'dnsvmolxa', 
+  api_key: '152172414613623', 
+  api_secret: 'h7HWuimjWquZLVnUscf1HNsdMtM',
+  upload_preset: 'ba848rqk' 
+});
+*/
+
 //  Mongoose connection //
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://ProLifeMonitor:BjkqNXvImzeAAxSPHAzNk35pm6X1yrWxpZHHwN05Iq0-@ds040898.mongolab.com:40898/ProLifeMonitor');  //connect to Mongo
@@ -43,6 +53,7 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use('/bower_components', express.static(__dirname + '/../bower_components'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());

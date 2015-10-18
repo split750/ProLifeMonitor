@@ -1,22 +1,22 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-12" ng-show="authenticated">
-			<a class="btn btn-default" href="#/profil/{{current_user}}/edit">Edit your profil</a>
+		<div class="col-md-4 col-md-offset-4 text-center bg-info" ng-show="authenticated">
+			<a class="" href="#/{{current_user}}/edit">Edit your profil</a>
 		</div>
 		<div class="col-md-12 header-bg">
-			<img src="./images/boulazac.jpg"></img>
+			<cl-image public-id="{{profil.bg}}" ></cl-image>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12 container-main first">
 			<div class="row">
 				<div class="col-md-12 logo">
-					<img src="./images/logo.png"></img>
+					<cl-image public-id="{{profil.companyLogo}}" ></cl-image>
 				</div>
 			</div>
 			<div class="row profil-header">
 				<div class="col-md-3 profil-pic">
-					<img src="./images/profil-pic.jpg"></img>
+					<cl-image public-id="{{profil.profilPic}}" ></cl-image>
 				</div>
 				<div class="col-md-9 name">
 					<h1 class="h1 firstName">{{profil.firstname}}, <span class="lastName">{{profil.firstname}}</span></h1>

@@ -25,7 +25,11 @@ var Profil = new Schema({
     socialNetwork : {
         twitter: String,
         linkedIn: String,
-    }
+    },
+
+    profilPic: String,
+    bg: String,
+    companyLogo: String,
 
 });
 

@@ -1,4 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid"
+	id="direct_upload" 
+    >
 	<form class="col-xs-12">
 		<div class="row">
 			<div class="col-md-12 container-main">
@@ -19,6 +21,56 @@
 				        	<label for="lastName">Last Name</label>
 				        	<input class="form-control" type="text" id="lastName" name="lastName" placeholder="Enter your Last name" ng-model="profil.lastname">
 				        </fieldset>
+				    </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 container-main">
+				<div class="container-title">
+					<h1>Edit your photos</h1>
+				</div>
+				<h3><span class="semi-bold">Profil</span> pictures</h3>
+				<div class="row">
+					<div class="col-sm-6" ngf-drop="uploadFiles1($files)" ng-model="files" ng-multiple="false">
+						<fieldset class="form-group">
+				        	<label>Profil picture</label>
+				        	<div class="upload_button_holder">
+			                    <div href="#" class="btn btn-default" ngf-select="uploadFiles1($files)" title="upload1" resetOnClick="true" >Upload profil picture</div>
+			                </div>
+			            </fieldset>
+				    </div>
+				    <div class="col-sm-6 profil-pic">
+				    	<cl-image public-id="{{profil.profilPic}}" ng-show="showprofilPic"></cl-image>
+				    	<cl-image public-id="{{profilPic}}" ng-hide="showprofilPic"></cl-image>
+				    </div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4" ngf-drop="uploadFiles2($files)" ng-model="files" ng-multiple="false">
+						<fieldset class="form-group">
+				        	<label>Background picture</label>
+				        	<div class="upload_button_holder">
+			                    <div href="#" class="btn btn-default" ngf-select="uploadFiles2($files)" title="upload2" resetOnClick="true" >Upload background</div>
+			                </div>
+			            </fieldset>
+				    </div>
+				    <div class="col-sm-8 editBg">
+				    	<cl-image public-id="{{profil.bg}}" ng-show="showbg"></cl-image>
+				    	<cl-image public-id="{{bg}}" ng-hide="showbg"></cl-image>
+				    </div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" ngf-drop="uploadFiles3($files)" ng-model="files" ng-multiple="false">
+						<fieldset class="form-group">
+				        	<label>Company picture</label>
+				        	<div class="upload_button_holder">
+			                    <div href="#" class="btn btn-default" ngf-select="uploadFiles3($files)" title="upload3" resetOnClick="true" >Upload company logo</div>
+			                </div>
+			            </fieldset>
+				    </div>
+				    <div class="col-sm-6 editBg">
+				    	<cl-image public-id="{{profil.companyLogo}}" ng-show="showcompanyLogo"></cl-image>
+				    	<cl-image public-id="{{companyLogo}}" ng-hide="showcompanyLogo"></cl-image>
 				    </div>
 				</div>
 			</div>
@@ -108,8 +160,8 @@
 			</div>
 		</div>
 		<div class="row">
-	      <div class="col-sm-4 col-offset-4">
-	        <input type="submit" value="{{isSubmitting ? 'saving profil...' : 'Save profil'}}" class="btn btn-default" ng-click="saveProfil(profil)" ng-disabled="isSubmitting">
+	      <div class="col-md-12 container-main text-center saveProfil">
+	        <input type="submit" value="{{isSubmitting ? 'saving profil...' : 'Save profil'}}" class="btn btn-primary" ng-click="saveProfil(profil)" ng-disabled="isSubmitting">
 	      </div>
 	    </div>
     </form>

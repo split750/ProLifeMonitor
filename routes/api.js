@@ -134,46 +134,51 @@ router.route('/profil/:id')
 		        res.send(items);
 		    };
 	    });
+		
 	})
 
 	.put(function(req, res) {
-		var id = req.params.id;
-	    console.log(JSON.stringify(req.body));
-	    console.log('Updating profil: ' + id);
 
-	    var profilItem = req.body;
-	    delete profilItem._id;
+		if (req.isAuthenticated()){
+			var id = req.params.id;
+		    console.log(JSON.stringify(req.body));
+		    console.log('Updating profil: ' + id);
 
-	    Profil.update({'userName': id}, profilItem, function(err) {
-	    	if (err) {
-	    		console.log('Error updating profil: ' + err);
-	    		res.send({'error':'An error has occurred'});
-	        } else {
-	            console.log(profilItem.firstname + ' document(s) updated');
-	            res.send(profilItem);
-	        }
-	    });
-	    /*
-	    Profil.findById(req.body._id, function(err, profilItem) {
-	        if (err) {
-	            console.log('Error updating profil: ' + err);
-	            res.send({'error':'An error has occurred'});
-	        } else {
-	        	profilItem.firstname = req.body.firstname;
-	        	profilItem.lastname = req.body.lastname;
-	        	profilItem.job.title = req.body.job.title;
+		    var profilItem = req.body;
+		    delete profilItem._id;
 
-	        	Profil.update({_id: req.body._id}, profilItem, function(err, profilItem){
-				if(err)
-					res.send(err);
+		    Profil.update({'userName': id}, profilItem, function(err) {
+		    	if (err) {
+		    		console.log('Error updating profil: ' + err);
+		    		res.send({'error':'An error has occurred'});
+		        } else {
+		            console.log(profilItem.firstname + ' document(s) updated');
+		            res.send(profilItem);
+		        }
+		    });
+		    /*
+		    Profil.findById(req.body._id, function(err, profilItem) {
+		        if (err) {
+		            console.log('Error updating profil: ' + err);
+		            res.send({'error':'An error has occurred'});
+		        } else {
+		        	profilItem.firstname = req.body.firstname;
+		        	profilItem.lastname = req.body.lastname;
+		        	profilItem.job.title = req.body.job.title;
 
-					res.json(profilItem);
-				});
-	        }
+		        	Profil.update({_id: req.body._id}, profilItem, function(err, profilItem){
+					if(err)
+						res.send(err);
 
-	    });
-		*/
+						res.json(profilItem);
+					});
+		        }
 
+		    });
+			*/
+		} else {
+			res.send(302);
+		}
 	});
 
 module.exports = router;
