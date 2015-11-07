@@ -1,13 +1,12 @@
 body {
-	/*padding-top:70px;*/
-	width: 100%;
-    height: 100%;
-	width: 100%;
-    height: 100%;
     font-family: 'Roboto',Helvetica,Arial,sans-serif;
     /*font-family: Arial,"Source Sans Pro","Helvetica Neue",sans-serif;*/
     color: #626262;
     background-color: rgb(240, 240, 240);
+}
+
+.body {
+    position: relative;
 }
 
 .animateall * {
@@ -25,37 +24,13 @@ body {
     transition-timing-function: ease-in-out;
 }
 
-a {
-	color: #00B7FF;
-}
 
-.ng-scope {
-	margin-top: 30px;
-}
+/*********************************************/
+/*              Container                    */
+/*********************************************/
 
-.submit-btn {
-	background-color: #b1dbff;
-	margin: 10px 0 10px 0;
-}
-
-.post {
-	padding: 10px;
-	margin-bottom: 5px;
-	border-radius: 5px;
-}
-
-.odd {
-	background-color: #f2f9ff;
-	
-}
-.even {
-	background-color: #eceff3;
-}
-
-.form-auth {
-	max-width: 330px;
-	padding: 5px;
-	margin: 0 auto;
+.main-content {
+    margin-top: 60px;
 }
 
 .container-main {
@@ -152,26 +127,155 @@ h3 .semi-bold {
     bottom: 0;
 }
 
-/*
-.line-abs {
-	background: #333;
-    box-shadow: 0 1px 0 rgba(255,255,255,0.75);
-    height: 2px;
-    width: 80px;
-    margin: 0 10px;
-    display: inline-block;
-    zoom: 1;
-    float: none;
-    position: absolute;
-    top: 50%;
-    right: 100%;
+
+/*********************************************/
+/*              Main menu                    */
+/*********************************************/
+
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(26,144,219);
+    color: #fff;
+    height: 60px;
+    z-index: 1000;
+    border-bottom: 1px solid #fff;
+    -o-box-shadow: 0 0 15px rgba(0,0,0,0.13);
+    -moz-box-shadow: 0 0 15px rgba(0,0,0,0.13);
+    -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.13);
+    box-shadow: 0 0 15px rgba(0,0,0,0.13);
 }
 
-.line-abs.right {
-	right: auto;
-    left: 100%;
+.main-menu a {
+    color: #fff;
+    text-decoration: none;
 }
-*/
+
+.main-menu a:hover, .main-menu a:active, .main-menu a:focus {
+    text-decoration: none;
+}
+
+.main-menu .brand {
+    font-size: 26px;
+    min-width: 169px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.main-menu .brand a {
+    display: inline-block;
+    height: 60px;
+    padding-top: 10px;
+}
+
+.main-menu .brand a:focus, .main-menu .brand a:active, .main-menu .brand a:hover {
+    text-decoration: none;
+}
+
+.main-menu .brand span {
+    font-weight: 100;
+}
+
+.main-menu .right {
+    text-align: right;
+    padding-top: 10px;
+}
+
+.main-menu .right p {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.main-menu .right p a {
+    font-weight: 300;
+    text-decoration: underline;
+    -webkit-transition: font-weight .28s;
+    -moz-transition: font-weight .28s;
+    -ms-transition: font-weight .28s;
+    -o-transition: font-weight .28s;
+    transition: font-weight .28s;
+}
+
+.main-menu .right p a:hover, .main-menu .right p a:focus, .main-menu .right p a:active {
+    font-weight: 400;
+    -webkit-transition-duration: .14s;
+    -moz-transition-duration: .14s;
+    -ms-transition-duration: .14s;
+    -o-transition-duration: .14s;
+    transition-duration: .14s;
+}
+
+.menu-button {
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    background: 0 0;
+    -webkit-transition: background-color .28s,color .28s;
+    -moz-transition: background-color .28s,color .28s;
+    -ms-transition: background-color .28s,color .28s;
+    -o-transition: background-color .28s,color .28s;
+    transition: background-color .28s,color .28s;
+    cursor: pointer;
+}
+
+.menu-button.primary {
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.menu-button.primary:hover {
+    -webkit-transition-duration: .14s;
+    -moz-transition-duration: .14s;
+    -ms-transition-duration: .14s;
+    -o-transition-duration: .14s;
+    transition-duration: .14s;
+    background-color: #fff;
+    color: #000;
+}
+
+.menu-button.secondary {
+    color: #fff;
+    border: none;
+}
+
+.menu-button.secondary:hover {
+    -webkit-transition-duration: .14s;
+    -moz-transition-duration: .14s;
+    -ms-transition-duration: .14s;
+    -o-transition-duration: .14s;
+    transition-duration: .14s;
+    background-color: rgb(54,61,71);
+    color: #fff;
+}
+
+.menu-button.warning {
+    color: #fff;
+    border: none;
+}
+
+.menu-button.warning:hover {
+    -webkit-transition-duration: .14s;
+    -moz-transition-duration: .14s;
+    -ms-transition-duration: .14s;
+    -o-transition-duration: .14s;
+    transition-duration: .14s;
+    background-color: #fd0202;
+    color: #FFF;
+}
+
+
+/*********************************************/
+/*              profil page                  */
+/*********************************************/
 
 .bg-info {
 	position: absolute;
@@ -182,6 +286,7 @@ h3 .semi-bold {
 .header-bg {
 	max-height: 450px;
 	overflow: hidden;
+    padding: 0;
 }
 
 .header-bg img {
@@ -300,7 +405,7 @@ h3 .semi-bold {
 
 #intro {
 	position: fixed;
-    top: 64px;
+    top: 60px;
     left: 0;
     margin-top: 0;
     height: 500px;
@@ -329,8 +434,7 @@ h3 .semi-bold {
     font-size: 8.4rem;
     line-height: 86px;
     line-height: 8.6rem;
-    color: #7e3b9d;
-    color: #9655b4;
+    color: rgb(26,144,219);
     font-weight: 900;
 }
 
@@ -367,7 +471,7 @@ h3 .semi-bold {
 
 section.content {
 	position: relative;
-	margin-top: 560px;
+	margin-top: 540px;
 	padding: 20px 0;
 	background-color: rgb(240, 240, 240);
 }
@@ -402,8 +506,33 @@ section.content p {
 /*              Mobile css                   */
 /*********************************************/
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     
+    .main-content {
+        margin-top: 100px;
+    }
+
+    .main-menu {
+        height: 100px;
+    }
+
+    .main-menu .brand {
+        
+    }
+    
+    .main-menu .brand a {
+        height: 40px;
+    }
+    
+    .main-menu .right {
+        text-align: center;
+    }
+
+    .menu-button {
+        font-size: 14px;
+        line-height: 16px;
+    } 
+
     .profil-index {
         text-align: center;
     }
