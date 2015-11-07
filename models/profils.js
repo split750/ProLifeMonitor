@@ -18,6 +18,7 @@ var Profil = new Schema({
         summary: String,
         email: String,
         tel: String,
+        website: String,
         place: String,
         assistant: String,
     },

@@ -24,6 +24,14 @@ body {
     transition-timing-function: ease-in-out;
 }
 
+.thin {
+    font-weight: 100;
+}
+
+.text-warning {
+    margin: 20px 0;
+    color: #fd0202;
+}
 
 /*********************************************/
 /*              Container                    */
@@ -35,7 +43,7 @@ body {
 
 .container-main {
 	max-width: 780px;
-	margin: 20px auto 0 auto;
+	margin: 20px auto 20px auto;
 	float: none;
 	background-color: #fff;
 	border-radius: 4px;
@@ -438,7 +446,7 @@ h3 .semi-bold {
     top: 60px;
     left: 0;
     margin-top: 0;
-    max-height: 500px;
+    height: 500px;
 	width: 100%;
     background: url("../images/bg-intro4.jpg") no-repeat;
     background-size: cover;
@@ -537,6 +545,19 @@ section.content p {
 
 
 /*********************************************/
+/*                 footer                    */
+/*********************************************/
+
+.footer {
+    padding: 20px;
+    background-color: rgb(54,61,71);
+    text-align: center;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+
+/*********************************************/
 /*              Mobile css                   */
 /*********************************************/
 
@@ -591,7 +612,7 @@ section.content p {
     #intro {
         position: relative;
         top: 0;
-        min-height: 340px;
+        height: 360px;
     }
 
     #intro hgroup {
