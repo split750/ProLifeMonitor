@@ -1,24 +1,24 @@
-<div class="container-fluid">
+<div class="container-fluid profil-index">
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4 text-center bg-info" ng-show="authenticated">
+		<div class="col-xs-4 col-md-offset-4 text-center bg-info" ng-show="authenticated">
 			<a class="" href="#/{{current_user}}/edit">Edit your profil</a>
 		</div>
-		<div class="col-md-12 header-bg">
+		<div class="col-xs-12 header-bg">
 			<cl-image public-id="{{profil.bg}}" ></cl-image>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12 container-main first">
+		<div class="col-xs-12 container-main first">
 			<div class="row">
-				<div class="col-md-12 logo">
+				<div class="col-xs-12 logo">
 					<cl-image public-id="{{profil.companyLogo}}" ></cl-image>
 				</div>
 			</div>
 			<div class="row profil-header">
-				<div class="col-md-3 profil-pic">
+				<div class="col-sm-3 col-xs-12 profil-pic">
 					<cl-image public-id="{{profil.profilPic}}" ></cl-image>
 				</div>
-				<div class="col-md-9 name">
+				<div class="col-sm-9 col-xs-12 name">
 					<h1 class="h1 firstName">{{profil.firstname}}, <span class="lastName">{{profil.lastname}}</span></h1>
 					<h2 class="jobTitle">{{profil.job.title}}</h2>
 					<div class="border-small"></div>

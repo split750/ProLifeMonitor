@@ -101,14 +101,13 @@ h1 {
 
 .h1 {
 	color: rgb(47, 47, 47);
-	/*font-family: NeuzeitBold;*/
 	font-size: 96px;
 	font-stretch: normal;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 700;
 	height: 104px;
-	letter-spacing: -4px;
+	letter-spacing: -2px;
 	line-height: 96px;
 	padding: 0;
 }
@@ -240,6 +239,7 @@ h3 .semi-bold {
 	text-transform: uppercase;
 	margin-bottom: 0;
 	margin-top: 10px;
+    font-weight: 500;
 }
 
 .lastName {
@@ -247,7 +247,8 @@ h3 .semi-bold {
 	line-height: 45px;
 	height: auto;
 	text-transform: capitalize;
-	letter-spacing: -2px;
+	letter-spacing: 0;
+    font-weight: 300;
 	margin-top: 0;
 }
 
@@ -290,59 +291,6 @@ h3 .semi-bold {
 	max-width: 100%;
 }
 
-
-@-webkit-keyframes fadeInUp{
-	0%{
-		opacity:0;
-		-webkit-transform:translateY(25px)
-	}
-
-	100%{
-		opacity:1;
-		-webkit-transform:translateY(0)
-	}
-}
-
-@-moz-keyframes fadeInUp{
-	0%{
-		opacity:0;
-		-moz-transform:translateY(25px)
-	}
-
-	100%{
-		opacity:1;
-		-moz-transform:translateY(0)
-	}
-}
-
-@-ms-keyframes fadeInUp{
-	0%{
-		opacity:0;
-		-ms-transform:translateY(25px)
-	}
-
-	100%{
-		opacity:1;
-		-ms-transform:translateY(0)
-	}
-}
-
-@-keyframes fadeInUp{
-	0%{
-		opacity:0;
-		-transform:translateY(25px)
-	}
-
-	100%{
-		opacity:1;
-		-transform:translateY(0)
-	}
-}
-
-@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-25px)}100%{opacity:1;-webkit-transform:translateY(0)}}
-@-moz-keyframes fadeInDown{0%{opacity:0;-moz-transform:translateY(-25px)}100%{opacity:1;-moz-transform:translateY(0)}}
-@-ms-keyframes fadeInDown{0%{opacity:0;-ms-transform:translateY(-25px)}100%{opacity:1;-ms-transform:translateY(0)}}@-ms-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
-@-keyframes fadeInDown{0%{opacity:0;-ms-transform:translateY(-25px)}100%{opacity:1;-ms-transform:translateY(0)}}
 
 
 
@@ -448,3 +396,116 @@ section.content p {
 	margin-top: 10px;
 	font-size: 16px;
 }
+
+
+/*********************************************/
+/*              Mobile css                   */
+/*********************************************/
+
+@media (max-width: 768px) {
+    
+    .profil-index {
+        text-align: center;
+    }
+
+    .container-main.first {
+        margin: 0px auto 0 auto;
+    }
+
+    .header-bg {
+        position: absolute;
+        top: 130px;
+        padding: 0;
+    }
+    
+    .logo img {
+        max-height: 70;
+    }
+
+    .profil-pic {
+        padding-left: 15px;
+        margin-bottom: 10px;
+    }
+
+    .profil-pic img {
+        margin: 0 auto;
+        max-height: 150px;
+        border-radius: 150px;
+        padding: 2px; 
+        border: 1px solid #888;
+    }
+
+    .firstName {
+        margin-top: 0;
+        font-size: 42px;
+    }
+
+    .lastName {
+        font-size: 40px;
+    }
+
+    .name .border-small {
+        display: block;
+        margin: 10px auto;
+    }
+
+}
+
+
+
+/*********************************************/
+/*              Animation                    */
+/*********************************************/
+
+@-webkit-keyframes fadeInUp{
+    0%{
+        opacity:0;
+        -webkit-transform:translateY(25px)
+    }
+
+    100%{
+        opacity:1;
+        -webkit-transform:translateY(0)
+    }
+}
+
+@-moz-keyframes fadeInUp{
+    0%{
+        opacity:0;
+        -moz-transform:translateY(25px)
+    }
+
+    100%{
+        opacity:1;
+        -moz-transform:translateY(0)
+    }
+}
+
+@-ms-keyframes fadeInUp{
+    0%{
+        opacity:0;
+        -ms-transform:translateY(25px)
+    }
+
+    100%{
+        opacity:1;
+        -ms-transform:translateY(0)
+    }
+}
+
+@-keyframes fadeInUp{
+    0%{
+        opacity:0;
+        -transform:translateY(25px)
+    }
+
+    100%{
+        opacity:1;
+        -transform:translateY(0)
+    }
+}
+
+@-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translateY(-25px)}100%{opacity:1;-webkit-transform:translateY(0)}}
+@-moz-keyframes fadeInDown{0%{opacity:0;-moz-transform:translateY(-25px)}100%{opacity:1;-moz-transform:translateY(0)}}
+@-ms-keyframes fadeInDown{0%{opacity:0;-ms-transform:translateY(-25px)}100%{opacity:1;-ms-transform:translateY(0)}}@-ms-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
+@-keyframes fadeInDown{0%{opacity:0;-ms-transform:translateY(-25px)}100%{opacity:1;-ms-transform:translateY(0)}}
