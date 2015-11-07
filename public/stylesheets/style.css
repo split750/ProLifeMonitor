@@ -208,6 +208,22 @@ h3 .semi-bold {
     transition-duration: .14s;
 }
 
+.main-menu .navigation a {
+    display: inline-block;
+    height: 60px;
+    padding: 20px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.main-menu .navigation a:hover {
+    text-decoration: underline;
+}
+
 .menu-button {
     display: inline-block;
     padding: 8px 20px;
@@ -269,6 +285,21 @@ h3 .semi-bold {
     transition-duration: .14s;
     background-color: #fd0202;
     color: #FFF;
+}
+
+.menu-button.blue {
+    color: rgb(26,144,219);
+    border: 2px solid rgb(26,144,219);
+}
+
+.menu-button.blue:hover {
+    -webkit-transition-duration: .14s;
+    -moz-transition-duration: .14s;
+    -ms-transition-duration: .14s;
+    -o-transition-duration: .14s;
+    transition-duration: .14s;
+    background-color: rgb(26,144,219);
+    color: #fff;
 }
 
 
@@ -512,7 +543,7 @@ section.content p {
 @media (max-width: 767px) {
     
     .main-content {
-        margin-top: 160px;
+        margin-top: 140px;
     }
 
     .container {
@@ -530,19 +561,26 @@ section.content p {
 
     .main-menu {
         position: absolute;
-        height: 160px;
-    }
-
-    .main-menu .brand {
-        
+        height: 140px;
+        text-align: center;
     }
     
+    .main-menu .brand {
+        margin-bottom: 10px;
+    }
+
     .main-menu .brand a {
         height: 40px;
     }
     
     .main-menu .right {
         text-align: center;
+        padding-top: 0;
+    }
+
+    .main-menu .navigation a {
+        height: 40px;
+        padding: 10px;
     }
 
     .menu-button {
@@ -557,7 +595,7 @@ section.content p {
     }
 
     #intro hgroup {
-        padding-top: 30px;
+        padding-top: 60px;
         max-width: 500px;
     }
 
@@ -617,16 +655,20 @@ section.content p {
 
     .firstName {
         margin-top: 0;
-        font-size: 42px;
+        font-size: 36px;
     }
 
     .lastName {
-        font-size: 40px;
+        font-size: 34px;
     }
 
     .name .border-small {
         display: block;
         margin: 10px auto;
+    }
+
+    .jobTitle {
+        font-size: 22px;
     }
 
 }
