@@ -22,15 +22,17 @@ module.exports = function(passport){
 			passReqToCallback : true
 		},
 		function(req, username, password, done) { 
+			//change username to lowercase
+			var validUsername  = username.toLowerCase();
 			// check in mongo if a user with username exists or not
-			User.findOne({ 'username' :  username }, 
+			User.findOne({ 'username' :  validUsername }, 
 				function(err, user) {
 					// In case of any error, return using the done method
 					if (err)
 						return done(err);
 					// Username does not exist, log the error and redirect back
 					if (!user){
-						console.log('User Not Found with username '+username);
+						console.log('User Not Found with username '+validUsername);
 						return done(null, false);                 
 					}
 					// User exists but wrong password, log the error 
@@ -50,9 +52,10 @@ module.exports = function(passport){
 			passReqToCallback : true // allows us to pass back the entire request to the callback
 		},
 		function(req, username, password, done) {
-
+			//change username to lowercase
+			var validUsername  = username.toLowerCase();
 			// find a user in mongo with provided username
-			User.findOne({ 'username' :  username }, function(err, user) {
+			User.findOne({ 'username' :  validUsername }, function(err, user) {
 				// In case of any error, return using the done method
 				if (err){
 					console.log('Error in SignUp: '+err);
@@ -60,14 +63,14 @@ module.exports = function(passport){
 				}
 				// already exists
 				if (user) {
-					console.log('User already exists with username: '+username);
+					console.log('User already exists with username: '+validUsername);
 					return done(null, false);
 				} else {
 					// if there is no user, create the user
 					var newUser = new User();
 
 					// set the user's local credentials
-					newUser.username = username;
+					newUser.username = validUsername;
 					newUser.password = createHash(password);
 
 					// save the user
@@ -76,7 +79,7 @@ module.exports = function(passport){
 							console.log('Error in Saving user: '+err);  
 							throw err;  
 						}
-						console.log(newUser.username + ' Registration succesful');    
+						console.log(newUser.validUsername + ' Registration succesful');    
 						return done(null, newUser);
 					});
 				}
