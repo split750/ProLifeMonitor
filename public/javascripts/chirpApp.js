@@ -108,23 +108,43 @@ app.factory('Profil', function($http){
 
 
 app.controller('profilController', function($http, $scope, $routeParams, $location, Profil){
-	$scope.getProfil = Profil.get($routeParams.id)
+	
+  var styleDisplayNone = {'display':'none'};
+
+  $scope.getProfil = Profil.get($routeParams.id)
 	  	.success(function(data) {
 	        console.log(data);
 	        $scope.profil = data;
-	    }).
-        error(function () {
-            $location.path('/');
-        });
-  if (! $scope.bg) {
-    $scope.styleContainerMainFirst = {'margin': '20px auto 20px auto'}
-  };
-  var styleDisplayNone = {'display':'none'};
-  $scope.styleSummary = "";
-  if (! $scope.userSummary) {
-    $scope.styleSummary = styleDisplayNone;
-    console.log ($scope.styleSummary);
-  };
+  
+          if (typeof data.bg == "undefined") {
+            $scope.styleContainerMainFirst = {'margin': '20px auto 20px auto'};
+          } else {
+            $scope.styleContainerMainFirst = "";
+          };
+          
+          if (!$scope.profil.job) {
+            $scope.styleSummary = styleDisplayNone;
+          } else {
+            if (!$scope.profil.job.userSummary) {
+              $scope.styleSummary = styleDisplayNone;
+            };
+          };
+
+          if (!$scope.profil.socialNetwork) {
+            $scope.styleSocialNetwork = styleDisplayNone;
+          } else {
+            if (!$scope.profil.socialNetwork.twitter) {
+              $scope.styleSocialNetworkTwitter = styleDisplayNone;
+            };
+            if (!$scope.profil.socialNetwork.linkedIn) {
+              $scope.styleSocialNetworkLinkedIn = styleDisplayNone;
+            };
+          };
+
+	    }).error(function () {
+        $location.path('/');
+      });
+
 });
 
 app.controller('profilEditController', ['$http','$scope', '$rootScope', '$routeParams', '$location', 'Upload',

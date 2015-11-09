@@ -359,7 +359,7 @@ h3 .semi-bold {
 .profil-pic img {
 	display: block;
 	margin: 0 auto 20px;
-	/*width: 150px;*/
+	max-width: 190px;
 	max-height: 180px;
 	margin-left: -1px;
 	/*border: 1px solid #bbb;*/
@@ -551,6 +551,7 @@ section.content p {
 /*********************************************/
 
 .footer {
+    position: relative;
     padding: 20px;
     background-color: rgb(54,61,71);
     text-align: center;

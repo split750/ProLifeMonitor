@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12 container-main first" ng-style="{{styleContainerMainFirst}}">
+		<div class="col-xs-12 container-main first" ng-style="styleContainerMainFirst">
 			<div class="row">
 				<div class="col-xs-12 logo">
 					<cl-image public-id="{{profil.companyLogo}}" ></cl-image>
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row" ng-style="{{styleSummary}}">
+	<div class="row" ng-style="styleSummary">
 		<div class="col-xs-12 container-main">
 			<div class="container-title">
 				<h1>À propos de moi</h1>
@@ -41,32 +41,45 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-12 container-main">		
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="container-title">
-						<h1>Contact</h1>
-					</div>
-					<h3><span class="semi-bold">Mes</span> coordonnées</h3>
-					<p><a href="mailto:{{profil.job.email}}">{{profil.job.email}}</a></p>
-					<p><a href="tel:{{profil.job.tel}}">{{profil.job.tel}}</a></p>
-					<p><a href="http://{{profil.job.website}}" target="_blank">{{profil.job.website}}</a></p>
-					<p>{{profil.job.place}}</p>
-					<p>{{profil.job.assistant}}</p>
-				</div>
+			<div class="container-title">
+				<h1>Contact</h1>
 			</div>
+			<h3><span class="semi-bold">Mes</span> coordonnées</h3>
+			<p>
+				<span class="hidden-xs">Email : </span>
+				<a href="mailto:{{profil.job.email}}">{{profil.job.email}}</a>
+			</p>
+			<p>
+				<span class="hidden-xs">Telephone : </span>
+				<a href="tel:{{profil.job.tel}}">{{profil.job.tel}}</a>
+			</p>
+			<p>
+				<span class="hidden-xs">Website : </span>
+				<a href="http://{{profil.job.website}}" target="_blank">{{profil.job.website}}</a>
+			</p>
+			<p>
+				<span class="hidden-xs">Place : </span>
+				{{profil.job.place}}
+			</p>
+			<p>
+				<span class="hidden-xs">Assistant : </span>
+				{{profil.job.assistant}}
+			</p>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" ng-style="styleSocialNetwork">
 		<div class="col-xs-12 container-main">		
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="container-title">
-						<h1>Mes réseaux</h1>
-					</div>
-					<p>Twitter : <a href="http://www.twitter.com/{{profil.socialNetwork.twitter}}">@{{profil.socialNetwork.twitter}}</a></p>
-					<p>LinkedIn : <a href="{{profil.socialNetwork.linkedIn}}">{{profil.socialNetwork.linkedIn}}</a></p>
-				</div>
+			<div class="container-title">
+				<h1>Mes réseaux</h1>
 			</div>
+			<p ng-style="styleSocialNetworkTwitter">
+				<span class="hidden-xs">Twitter : </span>
+				<a href="http://www.twitter.com/{{profil.socialNetwork.twitter}}">@{{profil.socialNetwork.twitter}}</a>
+			</p>
+			<p ng-style="styleSocialNetworkLinkedIn">
+				<span class="hidden-xs">LinkedIn : </span>
+				<a href="{{profil.socialNetwork.linkedIn}}">{{profil.firstname}} {{profil.lastname}}</a>
+			</p>
 		</div>
 	</div>
 </div>

@@ -124,14 +124,19 @@ router.route('/profil/:id')
 	
 	.get(function(req, res) {
 	    
-	    Profil.findOne({'userName': req.params.id }, function(err, items) {
+	    Profil.findOne({'userName': req.params.id }, function(error, items) {
 		    // if there is an error retrieving, send the error. nothing after res.send(err) will execute
 		    console.log('showing profil user : '+req.params.id);
-		    if (err) {
-		        res.send(err);
+		    if (error) {
+		        res.send(error);
+		        console.log('error1');
 		    } else {
-		    	console.log(items);
-		        res.send(items);
+		    	if (items == null) {
+		    		return res.status(302).send(error);
+		    	} else {
+		    		console.log(items);
+		   			res.send(items);
+		   		};
 		    };
 	    });
 		
