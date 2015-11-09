@@ -54,7 +54,7 @@ body {
 }
 
 .container-main.first {
-	margin: -250px auto 0 auto;
+	margin: -250px auto 20px auto;
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -333,11 +333,13 @@ h3 .semi-bold {
 
 .logo {
 	background-color: #fff;
+    padding-top: 20px;
 }
 
 .logo img {
 	margin: 0 auto;
 	display: block;
+    max-width: 250px;
 	max-height: 100px;
 	-webkit-animation:fadeInDown .6s 0.5s ease both;
 	-moz-animation:fadeInDown .6s 0.5s ease both;

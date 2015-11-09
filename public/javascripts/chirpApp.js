@@ -116,6 +116,15 @@ app.controller('profilController', function($http, $scope, $routeParams, $locati
         error(function () {
             $location.path('/');
         });
+  if (! $scope.bg) {
+    $scope.styleContainerMainFirst = {'margin': '20px auto 20px auto'}
+  };
+  var styleDisplayNone = {'display':'none'};
+  $scope.styleSummary = "";
+  if (! $scope.userSummary) {
+    $scope.styleSummary = styleDisplayNone;
+    console.log ($scope.styleSummary);
+  };
 });
 
 app.controller('profilEditController', ['$http','$scope', '$rootScope', '$routeParams', '$location', 'Upload',

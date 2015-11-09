@@ -10,7 +10,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12 container-main first">
+		<div class="col-xs-12 container-main first" ng-style="{{styleContainerMainFirst}}">
 			<div class="row">
 				<div class="col-xs-12 logo">
 					<cl-image public-id="{{profil.companyLogo}}" ></cl-image>
@@ -30,13 +30,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row" ng-style="{{styleSummary}}">
 		<div class="col-xs-12 container-main">
 			<div class="container-title">
 				<h1>À propos de moi</h1>
 			</div>
 			<h3><span class="semi-bold">Sommaire</span></h3>
-			<p>{{profil.job.summary}}</p>
+			<p>{{profil.job.userSummary}}</p>
 		</div>
 	</div>
 	<div class="row">
