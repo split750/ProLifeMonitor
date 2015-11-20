@@ -16,6 +16,7 @@
     "ng-file-upload": "^9.0.8",
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
-    "serve-favicon": "~2.2.0"
+    "serve-favicon": "~2.2.0",
+    "vcards-js": "^2.3.0"
   }
 }
