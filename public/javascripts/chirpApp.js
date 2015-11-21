@@ -9,11 +9,6 @@ var app = angular.module('chirpApp', ['ngRoute', 'ngResource','cloudinary', 'ngF
 	};
 });
 
-
-app.config(['$compileProvider', function ($compileProvider) {
-    $compileProvider.aHrefSanitizationWhitelist(/^\s*(|blob|):/);
-}]);
-
 /*
 //used for basic read from json
 app.factory('postService', function($http){

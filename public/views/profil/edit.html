@@ -85,6 +85,14 @@
 				<div class="row">
 					<div class="col-sm-8">
 						<fieldset class="form-group">
+				        	<label for="company">Company name</label>
+				        	<input class="form-control" type="text" id="company" name="company" placeholder="Enter your company name" ng-model="profil.job.company">
+				        </fieldset>
+				    </div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8">
+						<fieldset class="form-group">
 				        	<label for="title">Job tile</label>
 				        	<input class="form-control" type="text" id="title" name="title" placeholder="Enter your job title" ng-model="profil.job.title">
 				        </fieldset>
@@ -95,12 +103,6 @@
 						<fieldset class="form-group">
 				        	<label for="attachment">Attachment / Direction</label>
 				        	<input class="form-control" type="text" id="attachment" name="attachment" placeholder="Enter your attachment" ng-model="profil.job.attachment">
-				        </fieldset>
-				    </div>
-				    <div class="col-sm-6">
-						<fieldset class="form-group">
-				        	<label for="area">Area</label>
-				        	<input class="form-control" type="text" id="area" name="area" placeholder="Enter your area" ng-model="profil.job.area">
 				        </fieldset>
 				    </div>
 				    <div class="col-sm-12">
@@ -127,12 +129,44 @@
 				        	<input class="form-control" type="text" id="website" name="website" placeholder="Enter your website address" ng-model="profil.job.website">
 				        </fieldset>
 				    </div>
-				    <div class="col-sm-6">
+				</div>
+				<div class="row">
+					<div class="col-sm-8">
 						<fieldset class="form-group">
-				        	<label for="place">Place</label>
-				        	<input class="form-control" type="text" id="place" name="place" placeholder="Enter the place where you work" ng-model="profil.job.place">
+				        	<label for="label">Name of the place or building</label>
+				        	<input class="form-control" type="text" id="label" name="label" placeholder="Enter the name of the place or the building" ng-model="profil.job.label">
 				        </fieldset>
 				    </div>
+				</div>
+				<div class="row">   
+				    <div class="col-sm-6">
+						<fieldset class="form-group">
+				        	<label for="address">Address</label>
+				        	<input class="form-control" type="text" id="address" name="address" placeholder="Enter your address" ng-model="profil.job.address">
+				        </fieldset>
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="col-sm-4">
+						<fieldset class="form-group">
+				        	<label for="city">City</label>
+				        	<input class="form-control" type="text" id="city" name="city" placeholder="Enter the city name" ng-model="profil.job.city">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-4">
+						<fieldset class="form-group">
+				        	<label for="postalCode">Postal code</label>
+				        	<input class="form-control" type="text" id="postalCode" name="postalCode" placeholder="Enter the postalCode" ng-model="profil.job.postalCode">
+				        </fieldset>
+				    </div>
+				    <div class="col-sm-4">
+						<fieldset class="form-group">
+				        	<label for="countryRegion">Country</label>
+				        	<input class="form-control" type="text" id="countryRegion" name="countryRegion" placeholder="Enter the country/Region" ng-model="profil.job.countryRegion">
+				        </fieldset>
+				    </div>
+				</div>
+				<div class="row">    
 				    <div class="col-sm-6">
 						<fieldset class="form-group">
 				        	<label for="assistant">Assistant</label>

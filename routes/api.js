@@ -207,10 +207,12 @@ router.route('/profil/:id/vcard')
 		    	} else {
 		    		console.log('sending vcard');
 
+		    		// link to the vCards-js : https://github.com/enesser/vCards-js
+
 		    		//set properties
 				    vCard.firstName = items.firstname;
 				    vCard.lastName = items.lastname;
-				    vCard.organization = '';
+				    vCard.organization = items.job.company;
 
 				    vCard.workPhone = items.job.tel;
 				    vCard.title = items.job.title;
@@ -219,6 +221,14 @@ router.route('/profil/:id/vcard')
 
 				    vCard.workAddress.label = 'Work Address';
 				    vCard.workAddress.street = '';
+				    vCard.workAddress.city = '';
+				    vCard.workAddress.postalCode = '';
+					vCard.workAddress.countryRegion = '';
+
+					vCard.socialUrls['linkedIn'] = items.socialNetwork.linkedIn;
+					vCard.socialUrls['twitter'] = items.socialNetwork.twitter;
+
+				    vCard.source = 'http://prolifemonitor.herokuapp.com/#/'&items.userName;
 
 				    vCard.photo.attachFromUrl('http://res.cloudinary.com/dnsvmolxa/image/upload/'&items.profilPic);
 
