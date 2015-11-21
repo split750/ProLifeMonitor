@@ -139,6 +139,11 @@ h3 .semi-bold {
 	margin-bottom: 20px;
 }
 
+.max-width {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 
 /*********************************************/
 /*              Main menu                    */

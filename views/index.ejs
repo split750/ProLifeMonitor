@@ -22,21 +22,23 @@
 	<body class="animateall">
 			
 		<nav class="main-menu">
-			<div class="col-sm-3 col-xs-12 brand">
-				<a class="" href="#/">Digital <span>Card</span></a>
-			</div>
-			<div class="col-sm-4 col-xs-12 navigation">
-				<a class="" ng-show="authenticated" href="#/{{current_user}}/edit">Edit card</a>
-			</div>
-			<div class="col-sm-5 col-xs-12 right">
-				<div class="" ng-hide="authenticated">
-					<a class="menu-button primary" href="#/login">Login</a>
-					<a class="menu-button secondary" href="#/signup">Register</a>
+			<div class="max-width">
+				<div class="col-sm-3 col-xs-12 brand">
+					<a class="" href="#/">Digital <span>Card</span></a>
 				</div>
-				<div ng-show="authenticated">
-					<p class="">Signed in as <a href="#/{{current_user}}">{{current_user}}</a></p>
-					<a class="menu-button warning" href="#/" ng-click="signout()">Logout</a>
-					<!--<p class="navbar-right navbar-text" ng-hide="authenticated">Signed in as {{current_user}}</p>-->
+				<div class="col-sm-4 col-xs-12 navigation">
+					<a class="" ng-show="authenticated" href="#/{{current_user}}/edit">Edit card</a>
+				</div>
+				<div class="col-sm-5 col-xs-12 right">
+					<div class="" ng-hide="authenticated">
+						<a class="menu-button primary" href="#/login">Login</a>
+						<a class="menu-button secondary" href="#/signup">Register</a>
+					</div>
+					<div ng-show="authenticated">
+						<p class="">Signed in as <a href="#/{{current_user}}">{{current_user}}</a></p>
+						<a class="menu-button warning" href="#/" ng-click="signout()">Logout</a>
+						<!--<p class="navbar-right navbar-text" ng-hide="authenticated">Signed in as {{current_user}}</p>-->
+					</div>
 				</div>
 			</div>
 		</nav>
