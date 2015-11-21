@@ -195,18 +195,41 @@ router.route('/profil/:id/vcard')
 		//create a new vCard
 	    vCard = vCard();
 
-	    //set properties
-	    vCard.firstName = 'Eric';
-	    vCard.middleName = 'J';
-	    vCard.lastName = 'Nesser';
-	    vCard.organization = 'ACME Corporation';
+	    Profil.findOne({'userName': req.params.id }, function(error, items) {
+		    // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+		    console.log('showing profil user : '+req.params.id);
+		    if (error) {
+		        res.send(error);
+		        console.log('error1');
+		    } else {
+		    	if (items == null) {
+		    		return res.status(302).send(error);
+		    	} else {
+		    		//set properties
+				    vCard.firstName = items.firstname;
+				    vCard.lastName = items.lastname;
+				    vCard.organization = '';
 
-	    //set content-type and disposition including desired filename
-	    res.set('Content-Type', 'text/vcard; name="enesser.vcf"');
-	    res.set('Content-Disposition', 'inline; filename="enesser.vcf"');
+				    vCard.workPhone = items.job.tel;
+				    vCard.title = items.job.title;
+				    vCard.url = items.job.website;
+				    vCard.workEmail = items.job.email;
 
-	    //send the response
-	    res.send(vCard.getFormattedString());
+				    vCard.workAddress.label = 'Work Address';
+				    vCard.workAddress.street = '';
+
+				    vCard.photo.attachFromUrl('http://res.cloudinary.com/dnsvmolxa/image/upload/'&items.profilPic);
+
+				    //set content-type and disposition including desired filename
+				    res.set('Content-Type', 'text/vcard; name="contact.vcf"');
+				    res.set('Content-Disposition', 'inline; filename="contact.vcf"');
+
+				    //send the response
+				    res.send(vCard.getFormattedString());
+		   		};
+		    };
+	    });
+
 	});
 
 
