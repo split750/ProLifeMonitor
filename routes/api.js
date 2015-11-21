@@ -203,8 +203,10 @@ router.route('/profil/:id/vcard')
 		        console.log('error1');
 		    } else {
 		    	if (items == null) {
-		    		return res.status(302).send(error);
+		    		return res.status(302).send({state: 'failure', message: "Error trying to send contact"});
 		    	} else {
+		    		console.log('sending vcard');
+
 		    		//set properties
 				    vCard.firstName = items.firstname;
 				    vCard.lastName = items.lastname;
@@ -225,7 +227,8 @@ router.route('/profil/:id/vcard')
 				    res.set('Content-Disposition', 'inline; filename="contact.vcf"');
 
 				    //send the response
-				    res.send(vCard.getFormattedString());
+				    //res.send(vCard.getFormattedString());
+				    return res.status(200).send(vCard.getFormattedString());
 		   		};
 		    };
 	    });

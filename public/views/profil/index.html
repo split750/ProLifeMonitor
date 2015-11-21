@@ -82,4 +82,11 @@
 			</p>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-xs-12 text-center last" >
+    		<a class="menu-button blue last" ng-click="saveContact(profil)" ng-href="{{ fileUrl }}" download="{{profil.firstname}}.{{profil.lastname}}.vcf">{{isSaving ? 'saving contact...' : 'Save contact'}}</a>
+    		<p class="text-warning">{{error_message}}</p>
+    		<p class="text-success">{{success_message}}</p>
+    	</div>
+    </div>
 </div>

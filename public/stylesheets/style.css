@@ -135,6 +135,10 @@ h3 .semi-bold {
     bottom: 0;
 }
 
+.last {
+	margin-bottom: 20px;
+}
+
 
 /*********************************************/
 /*              Main menu                    */
@@ -247,7 +251,12 @@ h3 .semi-bold {
     -ms-transition: background-color .28s,color .28s;
     -o-transition: background-color .28s,color .28s;
     transition: background-color .28s,color .28s;
+    text-decoration: none;
     cursor: pointer;
+}
+
+.menu-button:hover, .menu-button:focus, .menu-button:active {
+	text-decoration: none;
 }
 
 .menu-button.primary {
@@ -309,7 +318,6 @@ h3 .semi-bold {
     background-color: rgb(26,144,219);
     color: #fff;
 }
-
 
 /*********************************************/
 /*              profil page                  */

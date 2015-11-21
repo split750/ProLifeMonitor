@@ -10,6 +10,9 @@ var app = angular.module('chirpApp', ['ngRoute', 'ngResource','cloudinary', 'ngF
 });
 
 
+app.config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(|blob|):/);
+}]);
 
 /*
 //used for basic read from json
@@ -107,43 +110,61 @@ app.factory('Profil', function($http){
 });
 
 
-app.controller('profilController', function($http, $scope, $routeParams, $location, Profil){
+app.controller('profilController', function($http, $scope, $routeParams, $location, $window, Profil){
 	
   var styleDisplayNone = {'display':'none'};
 
-  $scope.getProfil = Profil.get($routeParams.id)
+    $scope.getProfil = Profil.get($routeParams.id)
 	  	.success(function(data) {
 	        console.log(data);
 	        $scope.profil = data;
   
-          if (typeof data.bg == "undefined") {
-            $scope.styleContainerMainFirst = {'margin': '20px auto 20px auto'};
-          } else {
-            $scope.styleContainerMainFirst = "";
-          };
-          
-          if (!$scope.profil.job) {
-            $scope.styleSummary = styleDisplayNone;
-          } else {
-            if (!$scope.profil.job.userSummary) {
-              $scope.styleSummary = styleDisplayNone;
-            };
-          };
+	        if (typeof data.bg == "undefined") {
+	            $scope.styleContainerMainFirst = {'margin': '20px auto 20px auto'};
+	        } else {
+	            $scope.styleContainerMainFirst = "";
+	        };
+	          
+	        if (!$scope.profil.job) {
+	            $scope.styleSummary = styleDisplayNone;
+	        } else {
+	            if (!$scope.profil.job.userSummary) {
+	                $scope.styleSummary = styleDisplayNone;
+	            };
+	        };
 
-          if (!$scope.profil.socialNetwork) {
-            $scope.styleSocialNetwork = styleDisplayNone;
-          } else {
-            if (!$scope.profil.socialNetwork.twitter) {
-              $scope.styleSocialNetworkTwitter = styleDisplayNone;
-            };
-            if (!$scope.profil.socialNetwork.linkedIn) {
-              $scope.styleSocialNetworkLinkedIn = styleDisplayNone;
-            };
-          };
+	        if (!$scope.profil.socialNetwork) {
+	            $scope.styleSocialNetwork = styleDisplayNone;
+	        } else {
+	            if (!$scope.profil.socialNetwork.twitter) {
+	                $scope.styleSocialNetworkTwitter = styleDisplayNone;
+	            };
+	            if (!$scope.profil.socialNetwork.linkedIn) {
+	                $scope.styleSocialNetworkLinkedIn = styleDisplayNone;
+	            };
+	        };
+
+	        $http.get('/api/profil/' + $routeParams.id + '/vcard').
+		        success(function(data){	
+					var blob = new Blob([data], { type: 'text/vcard' });
+			        var url = $window.URL || $window.webkitURL;
+			    	$scope.fileUrl = url.createObjectURL(blob);
+				}).
+			    error(function () {
+			        $scope.error_message = "Contact can't be save";
+			    });
 
 	    }).error(function () {
-        $location.path('/');
-      });
+        	$location.path('/');
+        });
+
+	$scope.saveContact = function(profil){
+	    $scope.isSaving = true;
+	    $http.get('auth/success').success(function(){
+	    	$scope.isSaving = false;
+	    	$scope.success_message = "Contact sent !";
+	    });
+	};
 
 });
 
