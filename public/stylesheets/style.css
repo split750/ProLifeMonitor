@@ -3,6 +3,7 @@ body {
     /*font-family: Arial,"Source Sans Pro","Helvetica Neue",sans-serif;*/
     color: #626262;
     background-color: rgb(240, 240, 240);
+    background-color: #dcddde;
 }
 
 .body {
@@ -58,6 +59,10 @@ body {
 	background-color: rgba(255, 255, 255, 0.9);
 }
 
+.container-main.only {
+	margin: 100px auto;
+}
+
 h1 {
 	/*text-transform: uppercase;
 	font-weight: 600;
@@ -84,15 +89,15 @@ h1 {
 
 .h1 {
 	color: rgb(47, 47, 47);
-	font-size: 96px;
+	font-size: 110px;
 	font-stretch: normal;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: 700;
-	height: 104px;
 	letter-spacing: -2px;
-	line-height: 96px;
+	line-height: 120px;
 	padding: 0;
+	margin-top: 0;
 }
 
 h3 {
@@ -109,6 +114,14 @@ h3 .semi-bold {
 	font-weight: 400;
 }
 
+.h4 {
+	font-size: 16px;
+	font-weight: 700;
+	color: #1a90db;
+	margin: 0;
+	font-stretch: extra-expanded;
+}
+
 .container-title {
 	display: block;
     zoom: 1;
@@ -123,6 +136,7 @@ h3 .semi-bold {
 	position: relative;
 	color: #333;
 	padding: 0px 0px 7px 0px;
+	letter-spacing: 4px;
 }
 
 .container-title:after {
@@ -518,7 +532,7 @@ h3 .semi-bold {
 
 .container {
 	padding: 40px 20px;
-	margin: 30px auto;
+	margin: 80px auto;
     -o-box-shadow: 0 0 15px rgba(0,0,0,0.13);
     -moz-box-shadow: 0 0 15px rgba(0,0,0,0.13);
     -webkit-box-shadow: 0 0 15px rgba(0,0,0,0.13);
@@ -531,6 +545,7 @@ section.content {
 	margin-top: 540px;
 	padding: 20px 0;
 	background-color: rgb(240, 240, 240);
+	background-color: #dcddde;
 }
 
 section .container.first {
@@ -540,8 +555,8 @@ section .container.first {
 section.content h1 {
 	display: block;
 	font-weight: 600;
-	font-size: 36px;
-	line-height: 40px;
+	font-size: 48px;
+	line-height: 56px;
 	text-transform: none;
 	color: #000;
 	letter-spacing: -1px;
@@ -555,7 +570,7 @@ section.content .h1 span {
 
 section.content p {
 	margin-top: 10px;
-	font-size: 16px;
+	font-size: 20px;
 }
 
 
@@ -582,6 +597,10 @@ section.content p {
     .main-content {
         margin-top: 140px;
     }
+
+    .container-main.only {
+		margin: 40px auto;
+	}
 
     .container {
         padding: 10px;
