@@ -45,24 +45,37 @@
 				<h1>Contact</h1>
 			</div>
 			<h3><span class="semi-bold">Mes</span> coordonnées</h3>
+			<div class="row">
+				<div class="col-md-6 col-xs-12">
+					<p>
+						<span class="hidden-xs strong">Email : </span>
+						<a href="mailto:{{profil.job.email}}">{{profil.job.email}}</a>
+					</p>
+					<p>
+						<span class="hidden-xs strong">Telephone : </span>
+						<a href="tel:{{profil.job.tel}}">{{profil.job.tel}}</a>
+					</p>
+					<p>
+						<span class="hidden-xs strong">Website : </span>
+						<a href="http://{{profil.job.website}}" target="_blank">{{profil.job.website}}</a>
+					</p>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<div class="row">
+						<div class="col-md-3">
+							<p><span class="hidden-xs strong">Address : </span></p>
+						</div>
+						<div class="col-md-8">
+							<p>{{profil.job.label}}</p>
+							<p class="noMargin">{{profil.job.address}}</p>
+							<p class="noMargin">{{profil.job.city}} - {{profil.job.postalCode}}</p>
+							<p class="noMargin">{{profil.job.countryRegion}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
 			<p>
-				<span class="hidden-xs">Email : </span>
-				<a href="mailto:{{profil.job.email}}">{{profil.job.email}}</a>
-			</p>
-			<p>
-				<span class="hidden-xs">Telephone : </span>
-				<a href="tel:{{profil.job.tel}}">{{profil.job.tel}}</a>
-			</p>
-			<p>
-				<span class="hidden-xs">Website : </span>
-				<a href="http://{{profil.job.website}}" target="_blank">{{profil.job.website}}</a>
-			</p>
-			<p>
-				<span class="hidden-xs">Address : </span>
-				{{profil.job.address}}
-			</p>
-			<p>
-				<span class="hidden-xs">Assistant : </span>
+				<span class="hidden-xs strong">Assistant : </span>
 				{{profil.job.assistant}}
 			</p>
 		</div>
@@ -73,11 +86,11 @@
 				<h1>Mes réseaux</h1>
 			</div>
 			<p ng-style="styleSocialNetworkTwitter">
-				<span class="hidden-xs">Twitter : </span>
+				<span class="hidden-xs strong">Twitter : </span>
 				<a href="http://www.twitter.com/{{profil.socialNetwork.twitter}}">@{{profil.socialNetwork.twitter}}</a>
 			</p>
 			<p ng-style="styleSocialNetworkLinkedIn">
-				<span class="hidden-xs">LinkedIn : </span>
+				<span class="hidden-xs strong">LinkedIn : </span>
 				<a href="{{profil.socialNetwork.linkedIn}}">{{profil.firstname}} {{profil.lastname}}</a>
 			</p>
 		</div>
